@@ -121,7 +121,7 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData }) => {
                 </button>
 
                 {/* Next Button */}
-                <div className="ml-[120px] py-2">
+                <div className="ml-[100px] py-2">
                   <button
                     type="submit"
                     disabled={!values.manage}

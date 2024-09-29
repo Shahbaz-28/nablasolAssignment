@@ -32,7 +32,6 @@ const MasterCreateAccount = () => {
 
   const updateFormData = (newData) => {
     setFormData((prevData) => {
-      // Check if the new data is actually different from the previous data
       const isDataDifferent =
         JSON.stringify(prevData) !==
         JSON.stringify({ ...prevData, ...newData });
@@ -57,6 +56,7 @@ const MasterCreateAccount = () => {
             onNext={() => setStep(2)}
             formData={formData.stepp1}
             updateFormData={updateFormData}
+            step={step}
           />
         )}
         {step === 2 && (
@@ -65,11 +65,13 @@ const MasterCreateAccount = () => {
             formData={formData.stepp2}
             updateFormData={updateFormData}
             onNext={() => {}}
+            step={step}
           />
         )}
       </div>
 
-      <div className="flex justify-between items-center py-2 mt-2 w-full max-w-2xl md:px-0">
+      {/* Buttons */}
+      <div className="flex justify-between items-center py-2 mt-2 w-full max-w-3xl md:px-0">
         <button
           type="button"
           className="text-sm flex items-center hover:text-white"

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Stepper from "react-stepper-horizontal";
 
-const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
+const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData, step }) => {
   useEffect(() => {
     const savedData = localStorage.getItem("accountData");
     if (savedData) {
@@ -43,7 +44,18 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
       <h1 className="text-center mb-4 text-white font-semi-bold text-2xl">
         Create New Acoount
       </h1>
-      <div className="w-full bg-white rounded-lg shadow-lg p-8 lg:p-16 sm:p-12">
+      <div>
+      <div className="w-full bg-white rounded-lg shadow-lg p-8">
+        <Stepper
+          steps={[{ title: "Step 1: Profile" }, { title: "Step 2: Business Information" }]}
+          activeStep={step - 1} // Zero-indexed
+          completeColor="#7D89EC"
+          activeColor="#3856b8"
+          defaultTitleColor="#d3d3d3"
+          completeBarColor="#7D89EC"
+           size={30}
+           circleFontSize={16}
+        />
         <h1 className="text-center text-gray-400 font-medium ">Step 2</h1>
         <h1 className="text-center text-gray-600 font-medium">
           Business Information
@@ -199,7 +211,7 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
                     <Field
                       type="text"
                       name="taxId"
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-1 focus:ring-blue-400sm:text-sm"
                       placeholder="Input Your Tax ID"
                     />
                     <div className="h-[5px]">
@@ -224,7 +236,7 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
 
                   {/* First Document - Electronically signed agreement */}
 
-                  <div className=" flex  justify-between items-center mb-2">
+                  <div className=" flex gap-2 justify-between items-center mb-2">
                     <div className="flex items-center justify-between w-[560px] border border-gray-200 rounded-lg px-4 ">
                       <label className="block text-gray-700 text-sm">
                         Electronically sign the agreement(s)
@@ -249,7 +261,7 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
 
                   {/* Second Document - Not Signed Document */}
 
-                  <div className=" flex  justify-between items-center mb-2">
+                  <div className=" flex gap-2 justify-between items-center mb-2">
                     <div className="flex items-center justify-between w-[560px] border border-gray-200 rounded-lg px-4 ">
                       <label className="block text-gray-700 text-sm">
                         Non-adult beverage Kroger market supplier waiver and
@@ -286,7 +298,7 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
                   </p>
 
                   {/* COI Electronically Signed */}
-                  <div className=" flex  justify-between items-center mb-2">
+                  <div className=" flex gap-2  justify-between items-center mb-2">
                     <div className="flex items-center justify-between w-[560px] border border-gray-200 rounded-lg px-4 ">
                       <label className="block text-gray-700 text-sm">
                         Electronically sign the agreement(s)
@@ -313,6 +325,7 @@ const Step2 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
             );
           }}
         </Formik>
+      </div>
       </div>
     </div>
   );
