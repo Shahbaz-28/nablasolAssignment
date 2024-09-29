@@ -3,7 +3,6 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import StepIndicator from "./StepIndicator";
 
-
 const ProjectSchema = Yup.object().shape({
   projectName: Yup.string().required("Project name is required"),
   client: Yup.string().required("Client is required"),
@@ -54,148 +53,145 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
           setSubmitting(false);
         }}
       >
-        {({ setFieldValue }) => (
-          <Form className="space-y-4">
-            {/* Project Name */}
-            <div>
+        <Form className="space-y-4">
+          {/* Project Name */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Project Name
+            </label>
+            <Field
+              name="projectName"
+              placeholder="Enter project name here"
+              className="mt-1 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+            <div className="h-[5px]">
+              <ErrorMessage
+                name="projectName"
+                component="div"
+                className="text-red-600 text-sm"
+              />
+            </div>
+          </div>
+
+          {/* Client */}
+          <div className="flex flex-col md:flex-row md:space-x-3">
+            <div className="md:flex-1">
               <label className="block text-sm font-medium text-gray-700">
-                Project Name
+                Client
               </label>
               <Field
-                name="projectName"
-                placeholder="Enter project name here"
-                className="mt-1 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
-              />
+                name="client"
+                as="select"
+                className="mt-1 block w-full lg:w-[240px] px-3  py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+              >
+                <option value="">Select a client</option>
+                <option value="Client1">Client 1</option>
+                <option value="Client2">Client 2</option>
+                <option value="New">New Client</option>
+              </Field>
               <div className="h-[5px]">
                 <ErrorMessage
-                  name="projectName"
+                  name="client"
                   component="div"
                   className="text-red-600 text-sm"
                 />
               </div>
             </div>
 
-            {/* Client */}
-            <div className="flex flex-col md:flex-row md:space-x-3">
-              <div className="md:flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Client
-                </label>
-                <Field
-                  name="client"
-                  as="select"
-                  className="mt-1 block w-full lg:w-[240px] px-3  py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
-                >
-                  <option value="">Select a client</option>
-                  <option value="Client1">Client 1</option>
-                  <option value="Client2">Client 2</option>
-                  <option value="New">New Client</option>
-                </Field>
-                <div className="h-[5px]">
-                  <ErrorMessage
-                    name="client"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                </div>
-              </div>
+            <div className="flex justify-center items-center mt-4 md:mt-0">
+              <h1 className="text-sm font-medium lg:mt-4 mb-2 lg:mb-0 text-gray-700">
+                or
+              </h1>
+            </div>
 
-              <div className="flex justify-center items-center mt-4 md:mt-0">
-                <h1 className="text-sm font-medium lg:mt-4 mb-2 lg:mb-0 text-gray-700">
-                  or
-                </h1>
-              </div>
-
-              <div className="md:flex-1">
-                <Field
+            <div className="md:flex-1">
+              <Field
+                name="newClient"
+                placeholder="+ New Client"
+                className="mt-0 lg:mt-6 block w-full placeholder:text-sm px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+              />
+              <div className="h-[5px]">
+                <ErrorMessage
                   name="newClient"
-                  placeholder="+ New Client"
-                  className="mt-0 lg:mt-6 block w-full placeholder:text-sm px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  component="div"
+                  className="text-red-600 text-sm"
                 />
-                <div className="h-[5px]">
-                  <ErrorMessage
-                    name="newClient"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                </div>
               </div>
             </div>
+          </div>
 
-            {/* Dates */}
-            <div className="flex flex-col md:flex-row md:space-x-2">
-              <div className="md:flex-1">
-                <label className="block text-sm font-medium text-gray-700">
-                  Dates
-                </label>
-                <Field
-                  name="startDate"
-                  type="date"
-                  className="mt-1 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
-                />
-                <div className="h-[5px]">
-                  <ErrorMessage
-                    name="startDate"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                </div>
-              </div>
-
-              {/* End Date */}
-              <div className="md:flex-1 mt-4 md:mt-0">
-                <Field
-                  name="endDate"
-                  type="date"
-                  className="mt- lg:mt-6 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
-                />
-                <div className="h-[5px]">
-                  <ErrorMessage
-                    name="endDate"
-                    component="div"
-                    className="text-red-600 text-sm"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Notes */}
-            <div>
+          {/* Dates */}
+          <div className="flex flex-col md:flex-row md:space-x-2">
+            <div className="md:flex-1">
               <label className="block text-sm font-medium text-gray-700">
-                Notes
+                Dates
               </label>
               <Field
-                name="notes"
-                as="textarea"
-                placeholder="Optional"
-                className="mt-1 block w-full px-3 py-4 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+                name="startDate"
+                type="date"
+                className="mt-1 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
               />
-            </div>
-            {/* Buttons */}
-            <div className="flex justify-between items-center mt-8">
-              <button
-                type="button"
-                className="text-sm text-gray-500 hover:text-blue-500"
-              >
-                <span className="mr-1">&lt;</span>
-                Back
-              </button>
-
-              <div className="flex justify-center w-full">
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                >
-                  Next
-                </button>
+              <div className="h-[5px]">
+                <ErrorMessage
+                  name="startDate"
+                  component="div"
+                  className="text-red-600 text-sm"
+                />
               </div>
-            
             </div>
-            <div className="flex justify-center items-center ml-10">
+
+            {/* End Date */}
+            <div className="md:flex-1 mt-4 md:mt-0">
+              <Field
+                name="endDate"
+                type="date"
+                className="mt- lg:mt-6 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+              />
+              <div className="h-[5px]">
+                <ErrorMessage
+                  name="endDate"
+                  component="div"
+                  className="text-red-600 text-sm"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Notes */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Notes
+            </label>
+            <Field
+              name="notes"
+              as="textarea"
+              placeholder="Optional"
+              className="mt-1 block w-full px-3 py-4 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+          {/* Buttons */}
+          <div className="flex justify-between items-center mt-8">
+            <button
+              type="button"
+              className="text-sm text-gray-500 hover:text-blue-500"
+            >
+              <span className="mr-1">&lt;</span>
+              Back
+            </button>
+
+            <div className="flex justify-center w-full">
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+          <div className="flex justify-center items-center ml-10">
             <StepIndicator step={step} />
-            </div>
-          </Form>
-        )}
+          </div>
+        </Form>
       </Formik>
     </div>
   );
