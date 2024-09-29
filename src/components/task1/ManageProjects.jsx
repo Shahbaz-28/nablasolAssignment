@@ -136,7 +136,7 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData, step }) 
                   </button>
                 </div>
               </div>
-              <div className="mt-4 flex justify-center items-center ml-7 lg:ml-0">
+              <div className="mt-4 flex justify-center items-center ml-6 lg:ml-1">
             <StepIndicator step={step} />
             </div>
             </Form>
