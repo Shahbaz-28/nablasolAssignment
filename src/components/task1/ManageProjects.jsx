@@ -111,7 +111,7 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData, step }) 
 
             <Form>
               {/* Buttons */}
-              <div className="flex items-center items-center  mt-4 lg:mt-8">
+              <div className="flex items-center justify-between mt-4 lg:mt-8">
                 <button
                   type="button"
                   className="text-sm text-gray-500 flex items-center hover:text-blue-500"

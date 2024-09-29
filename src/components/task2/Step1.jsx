@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Stepper from "react-stepper-horizontal";
 
-const Step1 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
+const Step1 = ({ setSubmitStep1, onNext, formData, updateFormData, step }) => {
   useEffect(() => {
     const savedData = localStorage.getItem("accountData");
     if (savedData) {
@@ -51,7 +52,18 @@ const Step1 = ({ setSubmitStep1, onNext, formData, updateFormData }) => {
       <h1 className="text-center mb-4 text-white font-semi-bold text-2xl">
         Create New Account
       </h1>
-      <div className="w-full bg-white rounded-lg shadow-lg p-8 sm:p-12">
+      <div className="w-full bg-white rounded-lg shadow-lg p-8">
+      <Stepper
+        steps={[
+          { title: "Step 1: Profile" },
+          { title: "Step 2: Business Information" },
+        ]}
+        activeStep={step - 1} 
+        completeColor="#7D89EC"
+        activeColor="#3856b8"
+        defaultTitleColor="#d3d3d3"
+        completeBarColor="#7D89EC"
+      />
         <h1 className="text-center text-gray-500 font-medium mb-4">Step 1</h1>
         <h1 className="text-2xl font-semibold text-gray-700 text-center mb-2">
           Your Profile
