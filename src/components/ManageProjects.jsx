@@ -19,8 +19,8 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData }) => {
       }}
     >
       {({ setFieldValue, values }) => (
-        <div className="flex mt-10 justify-center">
-          <div className="bg-white w-[450px] h-[490px] rounded-xl shadow-lg p-6">
+        <div className="flex lg:mt-8 justify-center">
+          <div className="bg-white w-[450px] min-h-[500px] h-screen lg:h-auto rounded-xl shadow-lg p-6 md:p-5">
             {/* Close button */}
             <div className="flex justify-end">
               <button className="text-gray-400 hover:text-gray-600">✕</button>
@@ -110,7 +110,7 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData }) => {
 
             <Form>
               {/* Buttons */}
-              <div className="flex items-center  mt-4 lg:mt8">
+              <div className="flex items-center  mt-4 lg:mt-8">
                 <button
                   type="button"
                   className="text-sm text-gray-500 flex items-center hover:text-blue-500"

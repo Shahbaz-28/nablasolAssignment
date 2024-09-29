@@ -19,8 +19,8 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
       }}
     >
       {({ setFieldValue, values }) => (
-        <div className="flex justify-center min-h-[540px] bg-gray-50">
-          <div className="bg-white w-full sm:w-[400px] md:w-[450px] h-auto sm:mt-12 md:mt-12 lg:mt-10 xl:mt-12 sm:h-auto rounded-xl shadow-lg p-6">
+        <div className="flex justify-center min-h-[540px] h-screen lg:h-auto bg-gray-50">
+          <div className="bg-white w-full sm:w-[400px] md:w-[450px] h-auto sm:mt-12 md:mt-8 lg:mt-8 sm:h-auto rounded-xl shadow-lg p-6 md:p-5">
             <div className="flex justify-end">
               <button className="text-gray-400 hover:text-gray-600">✕</button>
             </div>
@@ -96,7 +96,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
 
             <Form>
               {/* Buttons */}
-              <div className="flex items-center justify-between mt-[60px] sm:mt-[130px]">
+              <div className="flex items-center justify-between mt-[60px] sm:mt-[140px]">
                 <button
                   type="button"
                   className="text-sm  text-gray-500 flex items-center hover:text-blue-500"

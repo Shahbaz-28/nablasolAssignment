@@ -24,8 +24,11 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
   }, [formData, updateFormData]);
 
   return (
-    <div className="w-full max-w-md md:max-w-md mx-auto mt-8 bg-white p-6 md:p-8 shadow-lg rounded-md">
-      <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 md:mb-6">
+    <div className="w-full max-w-md h-screen lg:h-auto  md:max-w-md mx-auto mt-0 lg:mt-8 bg-white p-6 md:p-5 shadow-lg rounded-lg">
+      <div className="flex justify-end ">
+        <button className="text-gray-400 hover:text-gray-600">✕</button>
+      </div>
+      <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 md:mb-4">
         Create a Project
       </h2>
 
@@ -97,7 +100,9 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
               </div>
 
               <div className="flex justify-center items-center mt-4 md:mt-0">
-                <h1 className="text-sm font-medium lg:mt-4 mb-2 lg:mb-0 text-gray-700">or</h1>
+                <h1 className="text-sm font-medium lg:mt-4 mb-2 lg:mb-0 text-gray-700">
+                  or
+                </h1>
               </div>
 
               <div className="md:flex-1">

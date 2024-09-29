@@ -24,7 +24,10 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
   }, [formData, updateFormData]);
 
   return (
-    <div className="max-w-lg w-full mx-auto bg-white mt-10 shadow-lg p-6 rounded-lg sm:max-w-md md:max-w-lg lg:max-w-md">
+    <div className="max-w-lg w-full mx-auto h-screen lg:h-auto bg-white lg:mt-8 shadow-lg p-6 md:p-5 rounded-lg sm:max-w-md md:max-w-lg lg:max-w-md">
+      <div className="flex justify-end">
+        <button className="text-gray-400 hover:text-gray-600">✕</button>
+      </div>
       <h2 className="text-lg font-semibold text-center mb-1">Project type</h2>
       <p className="text-sm text-gray-500 mb-6 text-center">
         Don’t panic — You can also customize this type in settings
