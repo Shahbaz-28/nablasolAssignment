@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { FaUserFriends, FaUsers, FaUserShield } from "react-icons/fa";
+import StepIndicator from "./StepIndicator";
 
-const ManageProjects = ({ prevStep, nextStep, formData, updateFormData }) => {
+const ManageProjects = ({ prevStep, nextStep, formData, updateFormData, step }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   return (
@@ -135,6 +136,9 @@ const ManageProjects = ({ prevStep, nextStep, formData, updateFormData }) => {
                   </button>
                 </div>
               </div>
+              <div className="mt-4 flex justify-center items-center ml-6">
+            <StepIndicator step={step} />
+            </div>
             </Form>
           </div>
         </div>

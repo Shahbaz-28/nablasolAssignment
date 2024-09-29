@@ -46,6 +46,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.projectDetails}
           updateFormData={updateFormData}
+          step = {step}
         />
       )}
       {step === 2 && (
@@ -54,6 +55,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.projectType}
           updateFormData={updateFormData}
+          step = {step}
         />
       )}
       {step === 3 && (
@@ -62,6 +64,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.selectedView}
           updateFormData={updateFormData}
+          step = {step}
         />
       )}
       {step === 4 && (
@@ -69,6 +72,7 @@ const MasterForm = () => {
           prevStep={prevStep}
           formData={formData.manageProjects}
           updateFormData={updateFormData}
+          step = {step}
         />
       )}
     </div>

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import StepIndicator from "./StepIndicator";
 
-// Validation schema
+
 const ProjectSchema = Yup.object().shape({
   projectName: Yup.string().required("Project name is required"),
   client: Yup.string().required("Client is required"),
@@ -10,7 +11,7 @@ const ProjectSchema = Yup.object().shape({
   endDate: Yup.date().required("End date is required"),
 });
 
-const ProjectForm = ({ nextStep, formData, updateFormData }) => {
+const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
   useEffect(() => {
     const savedData = localStorage.getItem("formData");
     if (savedData) {
@@ -196,6 +197,10 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
                   Next
                 </button>
               </div>
+            
+            </div>
+            <div className="mt-4  h-4 flex justify-center items-center ml-10">
+            <StepIndicator step={step} />
             </div>
           </Form>
         )}

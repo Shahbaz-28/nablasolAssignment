@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { AiOutlineUnorderedList, AiOutlineAppstore } from "react-icons/ai";
+import StepIndicator from "./StepIndicator";
 
-const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
+const SelectView = ({ prevStep, nextStep, formData, updateFormData, step }) => {
   const [selectedView, setSelectedView] = useState("");
 
   return (
@@ -19,7 +20,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
       }}
     >
       {({ setFieldValue, values }) => (
-        <div className="flex justify-center min-h-[540px] h-screen lg:h-auto bg-gray-50">
+        <div className="flex justify-center min-h-[540px] h-screen lg:h-auto">
           <div className="bg-white w-full sm:w-[400px] md:w-[450px] h-auto sm:mt-12 md:mt-8 lg:mt-8 sm:h-auto rounded-xl shadow-lg p-6 md:p-5">
             <div className="flex justify-end">
               <button className="text-gray-400 hover:text-gray-600">✕</button>
@@ -121,6 +122,9 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
                   </button>
                 </div>
               </div>
+              <div className="mt-4 flex justify-center items-center ml-10">
+            <StepIndicator step={step} />
+            </div>
             </Form>
           </div>
         </div>
