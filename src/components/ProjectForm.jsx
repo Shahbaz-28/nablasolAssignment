@@ -24,8 +24,8 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
   }, [formData, updateFormData]);
 
   return (
-    <div className="w-full max-w-md mx-auto mt-8 bg-white p-8 shadow-lg rounded-md">
-      <h2 className="text-2xl font-semibold text-center mb-6">
+    <div className="w-full max-w-md md:max-w-md mx-auto mt-8 bg-white p-6 md:p-8 shadow-lg rounded-md">
+      <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 md:mb-6">
         Create a Project
       </h2>
 
@@ -72,15 +72,15 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
             </div>
 
             {/* Client */}
-            <div className="flex justify-between space-x-4">
-              <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row md:space-x-3">
+              <div className="md:flex-1">
                 <label className="block text-sm font-medium text-gray-700">
                   Client
                 </label>
                 <Field
                   name="client"
                   as="select"
-                  className="mt-1 w-[220px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="mt-1 block w-full lg:w-[240px] px-3  py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
                 >
                   <option value="">Select a client</option>
                   <option value="Client1">Client 1</option>
@@ -91,17 +91,20 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
                   <ErrorMessage
                     name="client"
                     component="div"
-                    className="text-red-600 text-sm "
+                    className="text-red-600 text-sm"
                   />
                 </div>
               </div>
 
-              <h1 className="text-sm font-medium mt-9 text-gray-700">or</h1>
-              <div className="flex flex-col">
+              <div className="flex justify-center items-center mt-4 md:mt-0">
+                <h1 className="text-sm font-medium lg:mt-4 mb-2 lg:mb-0 text-gray-700">or</h1>
+              </div>
+
+              <div className="md:flex-1">
                 <Field
                   name="newClient"
                   placeholder="+ New Client"
-                  className="mt-6 w-full px-3 py-2 border placeholder:text-sm shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="mt-0 lg:mt-6 block w-full placeholder:text-sm px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
                 />
                 <div className="h-[5px]">
                   <ErrorMessage
@@ -114,11 +117,11 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
             </div>
 
             {/* Dates */}
-            <div className="flex space-x-2">
+            <div className="flex flex-col md:flex-row md:space-x-2">
               {/* Start Date */}
-              <div className="flex-1">
+              <div className="md:flex-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Dates
+                  Start Date
                 </label>
                 <Field
                   name="startDate"
@@ -129,16 +132,20 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
                   <ErrorMessage
                     name="startDate"
                     component="div"
-                    className="text-red-600 text-sm "
+                    className="text-red-600 text-sm"
                   />
                 </div>
               </div>
+
               {/* End Date */}
-              <div className="flex-1">
+              <div className="md:flex-1 mt-4 md:mt-0">
+                {/* <label className="block text-sm font-medium text-gray-700">
+                  End Date
+                </label> */}
                 <Field
                   name="endDate"
                   type="date"
-                  className="mt-6 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
+                  className="mt- lg:mt-6 block w-full px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
                 />
                 <div className="h-[5px]">
                   <ErrorMessage
@@ -164,16 +171,19 @@ const ProjectForm = ({ nextStep, formData, updateFormData }) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center mt-8">
+            {/* Buttons */}
+            <div className="flex justify-between items-center mt-8">
               <button
                 type="button"
-                className="text-sm text-gray-500 flex items-center hover:text-blue-500"
+                className="text-sm text-gray-500 hover:text-blue-500"
               >
                 <span className="mr-1">&lt;</span>
                 Back
               </button>
 
-              <div className="ml-[120px]">
+              <div className="flex justify-center w-full">
+                {" "}
+                {/* Centering div */}
                 <button
                   type="submit"
                   className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"

@@ -24,9 +24,9 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
   }, [formData, updateFormData]);
 
   return (
-    <div className="max-w-md mx-auto bg-white mt-10 shadow-lg p-6 rounded-lg">
+    <div className="max-w-lg w-full mx-auto bg-white mt-10 shadow-lg p-6 rounded-lg sm:max-w-md md:max-w-lg lg:max-w-md">
       <h2 className="text-lg font-semibold text-center mb-1">Project type</h2>
-      <p className="text-sm text-gray-500 mb-6">
+      <p className="text-sm text-gray-500 mb-6 text-center">
         Don’t panic — You can also customize this type in settings
       </p>
 
@@ -54,7 +54,7 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
             <div className="grid grid-cols-3 mb-4 border-gray-300">
               <button
                 type="button"
-                className={`py-2 text-center border rounded-l-md text-sm ${
+                className={`py-2 text-center border rounded-l-md text-sm sm:text-xs ${
                   values.type === "Time & Materials"
                     ? "bg-blue-500 border-blue-500 text-white font-semibold"
                     : "text-gray-500"
@@ -69,7 +69,7 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
               </button>
               <button
                 type="button"
-                className={`py-2 text-center border text-sm ${
+                className={`py-2 text-center border text-sm sm:text-xs ${
                   values.type === "Fixed Fee"
                     ? "bg-blue-500 border-blue-500 text-white font-semibold"
                     : "text-gray-500"
@@ -82,7 +82,7 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
               </button>
               <button
                 type="button"
-                className={`py-2 text-center border rounded-r-md text-sm ${
+                className={`py-2 text-center border rounded-r-md text-sm sm:text-xs ${
                   values.type === "Non-Billable"
                     ? "bg-blue-500 border-blue-500 text-white font-semibold"
                     : "text-gray-500"
@@ -105,14 +105,14 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
               >
                 Hourly
               </label>
-              <p className="text-sm text-gray-500 ">
+              <p className="text-sm text-gray-500">
                 We need hourly rate to track your project's billable amount.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Field
                   name="hourlyRate"
                   as="select"
-                  className="mt-1 block w-[220px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
+                  className="mt-1 block w-full sm:w-[220px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
                 >
                   <option value="">Project Hourly Rate</option>
                   <option value="10000">₹ 10,000</option>
@@ -123,7 +123,7 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
                   name="d"
                   placeholder="₹"
                   type="text"
-                  className="mt-1 block w-[100px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
+                  className="mt-1 block w-full sm:w-[100px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
                 />
               </div>
               <div className=" h-[5px]">
@@ -135,7 +135,7 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
               </div>
             </div>
 
-            {/* Hours Per Personn Dropdown */}
+            {/* Hours Per Person Dropdown */}
             <div className="mb-4">
               <label
                 htmlFor="hoursPerPerson"
@@ -143,13 +143,13 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
               >
                 Budget
               </label>
-              <p className="text-sm text-gray-500 ">
+              <p className="text-sm text-gray-500">
                 We need hourly rate to track your project's billable amount.
               </p>
               <Field
                 name="hoursPerPerson"
                 as="select"
-                className="mt-1 block w-[220px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
+                className="mt-1 block w-full sm:w-[220px] px-3 py-2 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 sm:text-sm"
               >
                 <option value="">Select Hours</option>
                 <option value="1">1 hour</option>
@@ -193,25 +193,24 @@ const ProjectTypeForm = ({ prevStep, nextStep, formData, updateFormData }) => {
                 className="ml-2 block text-sm text-gray-900"
               >
                 Send email if project exceeds{" "}
-                <span className=" border py-1 px-2 rounded-md">80.00</span> % of
+                <span className="border py-1 px-2 rounded-md">80.00</span> % of
                 budget
               </label>
             </div>
-
             {/* Submit Button */}
-            <div className="flex items-center mt-8">
+            <div className="flex items-center mt-8 justify-between">
               <button
                 type="button"
-                className="text-sm text-gray-500 flex items-center hover:text-blue-500"
+                className="text-sm text-gray-500 hover:text-blue-500"
                 onClick={prevStep}
               >
                 <span className="mr-1">&lt;</span>
                 Back
               </button>
-              <div className=" ml-[120px]">
+              <div className="flex justify-center w-full">
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
+                  className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                 >
                   Next
                 </button>

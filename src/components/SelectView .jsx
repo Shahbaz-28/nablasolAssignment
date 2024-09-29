@@ -19,8 +19,8 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
       }}
     >
       {({ setFieldValue, values }) => (
-        <div className="flex items-center justify-center h-screen bg-gray-50">
-          <div className="bg-white w-[450px] h-[500px] rounded-xl shadow-lg p-6">
+        <div className="flex justify-center min-h-[540px] bg-gray-50">
+          <div className="bg-white w-full sm:w-[400px] md:w-[450px] h-auto sm:mt-12 md:mt-12 lg:mt-10 xl:mt-12 sm:h-auto rounded-xl shadow-lg p-6">
             <div className="flex justify-end">
               <button className="text-gray-400 hover:text-gray-600">✕</button>
             </div>
@@ -34,7 +34,8 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
             </p>
 
             {/* View options */}
-            <div className="flex justify-center space-x-8 mb-6">
+            <div className="flex justify-center space-x-4 sm:space-x-8 mb-6">
+              {/* First option (List) */}
               <div
                 className={`text-center cursor-pointer ${
                   selectedView === "list" ? "border-blue-500" : ""
@@ -44,9 +45,8 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
                   setFieldValue("view", "list");
                 }}
               >
-                {/* First option (List) */}
                 <div
-                  className={`w-[170px] h-[120px] ${
+                  className={`w-[140px] sm:w-[170px] h-[90px] sm:h-[120px] ${
                     selectedView === "list"
                       ? "border-2 border-blue-500"
                       : "border-2 border-gray-100"
@@ -64,6 +64,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
                 <p className="text-sm text-gray-500">List</p>
               </div>
 
+              {/* Second option (Board) */}
               <div
                 className={`text-center cursor-pointer ${
                   selectedView === "board" ? "border-blue-500" : ""
@@ -74,7 +75,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
                 }}
               >
                 <div
-                  className={`w-[170px] h-[120px] ${
+                  className={`w-[140px] sm:w-[170px] h-[90px] sm:h-[120px] ${
                     selectedView === "board"
                       ? "border-2 border-blue-500"
                       : "border-2 border-gray-100"
@@ -92,19 +93,21 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData }) => {
                 <p className="text-sm text-gray-500">Board</p>
               </div>
             </div>
+
             <Form>
               {/* Buttons */}
-              <div className="flex items-center mt-[130px]">
+              <div className="flex items-center justify-between mt-[60px] sm:mt-[130px]">
                 <button
                   type="button"
-                  className="text-sm ml-4 text-gray-500 flex items-center hover:text-blue-500"
+                  className="text-sm  text-gray-500 flex items-center hover:text-blue-500"
                   onClick={prevStep}
                 >
                   <span className="mr-1">&lt;</span>
                   Back
                 </button>
 
-                <div className="ml-[100px]">
+                {/* Center the Next button */}
+                <div className="flex justify-center w-full">
                   <button
                     type="submit"
                     disabled={!values.view}
