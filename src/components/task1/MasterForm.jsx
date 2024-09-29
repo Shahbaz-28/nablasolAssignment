@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ProjectForm from "./ProjectForm";
-import ProjectTypeForm from "./ProjectTypeForm";
-import SelectView from "./SelectView ";
-import ManageProjects from "./ManageProjects";
+import ProjectForm from "../task1/ProjectForm";
+import ProjectTypeForm from "../task1/ProjectTypeForm";
+import SelectView from "../task1/SelectView ";
+import ManageProjects from "../task1/ManageProjects";
 
 const MasterForm = () => {
   const [step, setStep] = useState(1);
@@ -46,7 +46,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.projectDetails}
           updateFormData={updateFormData}
-          step = {step}
+          step={step}
         />
       )}
       {step === 2 && (
@@ -55,7 +55,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.projectType}
           updateFormData={updateFormData}
-          step = {step}
+          step={step}
         />
       )}
       {step === 3 && (
@@ -64,7 +64,7 @@ const MasterForm = () => {
           nextStep={nextStep}
           formData={formData.selectedView}
           updateFormData={updateFormData}
-          step = {step}
+          step={step}
         />
       )}
       {step === 4 && (
@@ -72,7 +72,7 @@ const MasterForm = () => {
           prevStep={prevStep}
           formData={formData.manageProjects}
           updateFormData={updateFormData}
-          step = {step}
+          step={step}
         />
       )}
     </div>

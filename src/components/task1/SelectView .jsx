@@ -106,9 +106,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData, step }) => {
                   <span className="mr-1">&lt;</span>
                   Back
                 </button>
-
-                {/* Center the Next button */}
-                <div className="flex justify-center w-full">
+                <div className="flex justify-center w-full mr-7">
                   <button
                     type="submit"
                     disabled={!values.view}
@@ -122,7 +120,7 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData, step }) => {
                   </button>
                 </div>
               </div>
-              <div className="mt-4 flex justify-center items-center ml-10">
+              <div className="mt-4 flex justify-center items-center ml-3">
             <StepIndicator step={step} />
             </div>
             </Form>

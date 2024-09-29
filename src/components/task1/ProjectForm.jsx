@@ -29,7 +29,7 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
       <div className="flex justify-end ">
         <button className="text-gray-400 hover:text-gray-600">✕</button>
       </div>
-      <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 md:mb-4">
+      <h2 className="text-xl md:text-2xl font-semibold text-center mb-4 md:mb-2">
         Create a Project
       </h2>
 
@@ -124,10 +124,9 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
 
             {/* Dates */}
             <div className="flex flex-col md:flex-row md:space-x-2">
-              {/* Start Date */}
               <div className="md:flex-1">
                 <label className="block text-sm font-medium text-gray-700">
-                  Start Date
+                  Dates
                 </label>
                 <Field
                   name="startDate"
@@ -145,9 +144,6 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
 
               {/* End Date */}
               <div className="md:flex-1 mt-4 md:mt-0">
-                {/* <label className="block text-sm font-medium text-gray-700">
-                  End Date
-                </label> */}
                 <Field
                   name="endDate"
                   type="date"
@@ -175,8 +171,6 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
                 className="mt-1 block w-full px-3 py-4 border shadow-sm border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400"
               />
             </div>
-
-            {/* Buttons */}
             {/* Buttons */}
             <div className="flex justify-between items-center mt-8">
               <button
@@ -188,8 +182,6 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
               </button>
 
               <div className="flex justify-center w-full">
-                {" "}
-                {/* Centering div */}
                 <button
                   type="submit"
                   className="bg-blue-500 text-white px-7 py-2 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
@@ -199,7 +191,7 @@ const ProjectForm = ({ nextStep, formData, updateFormData, step }) => {
               </div>
             
             </div>
-            <div className="mt-4  h-4 flex justify-center items-center ml-10">
+            <div className="flex justify-center items-center ml-10">
             <StepIndicator step={step} />
             </div>
           </Form>
