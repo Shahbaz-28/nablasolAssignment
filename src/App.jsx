@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<MasterForm />} />
+        {/* <Route path="/" element={<MasterForm />} /> */}
         <Route path="/create" element={<MasterCreateAccount />} />
       </Routes>
     </>
