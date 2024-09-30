@@ -121,8 +121,8 @@ const SelectView = ({ prevStep, nextStep, formData, updateFormData, step }) => {
                 </div>
               </div>
               <div className="mt-4 flex justify-center items-center ml-3">
-            <StepIndicator step={step} />
-            </div>
+                <StepIndicator step={step} />
+              </div>
             </Form>
           </div>
         </div>
