@@ -25,7 +25,7 @@ const MasterCreateAccount = () => {
     }
   }, []);
 
-  // Save to local storage whenever formData changes
+
   useEffect(() => {
     localStorage.setItem("accountData", JSON.stringify(formData));
   }, [formData]);

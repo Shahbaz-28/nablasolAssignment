@@ -81,7 +81,7 @@ const Step1 = ({ setSubmitStep1, onNext, formData, updateFormData, step }) => {
             updateFormData({ stepp1: values });
             localStorage.setItem(
               "accountData",
-              JSON.stringify({ projectDetails: values })
+              JSON.stringify({ stepp1: values })
             );
 
             onNext();
