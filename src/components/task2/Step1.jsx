@@ -53,22 +53,22 @@ const Step1 = ({ setSubmitStep1, onNext, formData, updateFormData, step }) => {
         Create New Account
       </h1>
       <div className="w-full bg-white rounded-lg shadow-lg p-8">
-      <Stepper
-        steps={[
-          { title: "Step 1: Profile" },
-          { title: "Step 2: Business Information" },
-        ]}
-        activeStep={step - 1} 
-        completeColor="#7D89EC"
-        activeColor="#3856b8"
-        defaultTitleColor="#d3d3d3"
-        completeBarColor="#7D89EC"
-      />
+        <Stepper
+          steps={[
+            { title: "Step 1: Profile" },
+            { title: "Step 2: Business Information" },
+          ]}
+          activeStep={step - 1}
+          completeColor="#7D89EC"
+          activeColor="#3856b8"
+          defaultTitleColor="#d3d3d3"
+          completeBarColor="#7D89EC"
+        />
         <h1 className="text-center text-gray-500 font-medium mb-4">Step 1</h1>
         <h1 className="text-2xl font-semibold text-gray-700 text-center mb-2">
           Your Profile
         </h1>
-        <p className="text-center text-gray-500 mb-5">
+        <p className="text-center text-[10px] lg:text-[16px] text-gray-500 mb-2 lg:mb-4">
           Enter the login information for your account. You will be <br /> able
           to create additional users after registering.
         </p>

@@ -25,7 +25,6 @@ const MasterCreateAccount = () => {
     }
   }, []);
 
-
   useEffect(() => {
     localStorage.setItem("accountData", JSON.stringify(formData));
   }, [formData]);
@@ -72,6 +71,7 @@ const MasterCreateAccount = () => {
 
       {/* Buttons */}
       <div className="flex justify-between items-center py-2 mt-2 w-full max-w-3xl md:px-0">
+        <div>
         <button
           type="button"
           className="text-sm flex items-center hover:text-white"
@@ -80,6 +80,7 @@ const MasterCreateAccount = () => {
           <span className="mr-1">&lt;</span>
           Back to Login
         </button>
+        </div>
         <div className=" space-x-2 lg:space-x-4">
           {step === 2 && (
             <button
